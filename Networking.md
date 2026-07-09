@@ -28,10 +28,11 @@ When you send and email or something over the internet, It doesn't go as a singl
  - IP : Responsible for addressing and routing packets accross the internet 
  - HTTP ; Protocol that powers the www, defining how message sare formatted and tranmitted 
 betweem browsers and servers. When you type a URL into your browser 
+HTTP is application layer protocol where as TCP and UDP are Transport layered ones, HTTP is based on these two 
 
 
 # HTTP
-Hyper text transfer protocol
+Hyper text transfer protocol, It is the format of message, like request has headers, body, methods, status codes. REST are set of rules that API needs to follow to be RESTful 
 - HTTP1; has headers, status codes methods: post and head. Each req needed its own connection this means a lot of back and forth; wan't very efficient 
 - HTTP 1.1 : introduced persisitent connections, connec stay open unless told to close. It also introduced pipelining; this lets clients send multiple request over one tcp connection ( but there is one issue if the first req gets delayed the further ones will be delayed too )
     * Another feature was chunk transfer encoding servers could send resp in small chunks without waiting for the whole respm to be ready 
@@ -39,6 +40,7 @@ Hyper text transfer protocol
 - HTTP 2 : Introduced a binary framing layer; mssgs are divided into smaller units called frames and send over the TCP connection the binary framing layer handles all this. responses of different req can be mixed and send and are put together on the binary layer 
     * Server push : server can send extra resp along with the requested one 
     * Header compression: uses HPACK to make heasers smaller 
+    * multiple mssgs streams over a single connection
     Issue with HTTP2 was the TCP's way to handle the lost or delayed packets
 - HTTP 3 : uses QUIC instead of TCP, it was build on UDP(connectionless protocol, doesnt need to connect before sending data), they handle packet loss better, improved multiplexing.
     * Handles netwrok changes well, if you switch from wifi to mobile data, they connection keeps going (Quakes connection ID, they dont depend on IP Addresses)
